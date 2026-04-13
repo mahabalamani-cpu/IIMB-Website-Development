@@ -1,775 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grace's Strokes – Art Studio for Ages 7–15</title>
-  <meta name="description" content="Grace's Strokes – Mandala art, canvas painting & bottle painting for children aged 7 to 15, guided by Ms Sara Grace in Bangalore." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mahabalamani| Resume</title>
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    * { cursor: none; }
+    <!-- Google Font (optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    :root {
-      --bg:      #faf6f0;
-      --bg2:     #f2ead8;
-      --bg3:     #e8dcc8;
-      --card:    #ffffff;
-      --text:    #1e140a;
-      --text2:   #5c4030;
-      --text3:   #9a7a60;
-      --accent:  #c04808;
-      --accent2: #e06828;
-      --accent3: #fde8d0;
-      --teal:    #1a6060;
-      --teal2:   #d8efed;
-      --border:  #ddd0b8;
-      --shadow:  0 6px 32px rgba(80,40,10,0.12);
-      --r:       14px;
-      --head:    'Cormorant Garamond', Georgia, serif;
-      --body:    'Jost', sans-serif;
-    }
+    <style>
+        * {
+            margin: 20;
+            padding: 12;
+            box-sizing: border-box, border: 8px solid #5a48ad;
+            font-family: 'Times New Roman', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+        }
 
-    body.dark {
-      --bg:      #120b04;
-      --bg2:     #1c1008;
-      --bg3:     #26160a;
-      --card:    #1e1208;
-      --text:    #f5e8d2;
-      --text2:   #c8a880;
-      --text3:   #8a6a48;
-      --accent:  #e07030;
-      --accent2: #f09050;
-      --accent3: #381808;
-      --teal:    #48b0aa;
-      --teal2:   #0a2828;
-      --border:  #382010;
-      --shadow:  0 6px 32px rgba(0,0,0,0.5);
-    }
+        body {
+            background: #e8c1e7;
+            color: #aaa2dc;
+        }
 
-    body {
-      font-family: var(--body);
-      background: var(--bg);
-      color: var(--text);
-      transition: background .4s, color .4s;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+        header {
+            background: #014a5e;
+            color: rgb(153, 235, 219);
+            text-align: center;
+            padding: 2rem 1rem;
+        }
 
-    /* PAINTBRUSH CURSOR */
-    #brush {
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 99999;
-      font-size: 26px;
-      line-height: 1;
-      user-select: none;
-      transform: translate(-4px, -28px) rotate(-30deg);
-      transition: transform .08s ease;
-    }
-    #brush.clicking {
-      transform: translate(-4px, -28px) rotate(-30deg) scale(0.8);
-    }
+        header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 70%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 500;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2.5rem; height: 62px;
-      transition: background .4s;
-    }
-    .logo { display: flex; flex-direction: column; line-height: 1.15; }
-    .logo-name { font-family: var(--head); font-size: 22px; font-weight: 600; color: var(--accent); letter-spacing: .5px; }
-    .logo-tag { font-size: 18px; color: var(--text3); letter-spacing: 2px; text-transform: uppercase; }
-
-    .nav-links { display: flex; align-items: center; gap: 2px; }
-    .nav-links a { font-size: 18px; color: var(--text2); text-decoration: none; padding: 6px 18px; border-radius: 8px; transition: background .2s, color .2s; letter-spacing: .3px; }
-    .nav-links a:hover { background: var(--accent3); color: var(--accent); }
-
-    .mode-btn { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 6px 16px; font-size: 12px; font-family: var(--body); color: var(--text2); margin-left: 8px; transition: background .2s; }
-    .mode-btn:hover { background: var(--accent3); }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text2); border-radius: 2px; }
-
-    .mobile-menu { display: none; flex-direction: column; background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 2rem 16px; gap: 4px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 18px; color: var(--text2); text-decoration: none; padding: 8px 18px; border-radius: 8px; }
-    .mobile-menu a:hover { background: var(--accent3); color: var(--accent); }
-
-    /* HERO */
-    .hero {
-  position: relative;   /* VERY IMPORTANT */
+        section {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: rgb(110, 237, 237));
+            padding: 1.5rem;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        section {
+    border: 9px solid #81a8e9;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    background-color: rgba(2, 49, 87, 0.906); /* subtle contrast */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
-    .hero {
-      position: relative; overflow: hidden;
-      background: var(--bg2);
-      padding: 6rem 2rem 5rem;
-      text-align: center;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 55% 45% at 15% 85%, rgba(192,72,8,.13) 0%, transparent 65%),
-        radial-gradient(ellipse 45% 55% at 85% 15%, rgba(26,96,96,.10) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-bg-img {
-      position: absolute; top: -190%; right: 1.2%;
-      transform: translate(50%, 50%);
-      width: 280px; max-width: 90%;
-      opacity: 0.07;
-      pointer-events: none; user-select: none; z-index: 0;
-    }
-    .hero-heart {
-      position: absolute; top: 50%; right: 1.2%;
-      transform: translateY(-50%);
-      font-size: 90px; opacity: 0.13;
-      pointer-events: none; user-select: none; z-index: 0;
-      animation: pulse 3s ease-in-out infinite;
-    }
-    .confetti-banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;   /* add this */
-  height: 120px;
 
-  pointer-events: none;
-  z-index: 0;
+        h2 {
+            margin-bottom: 1rem;
+            color: #75f1e7;
+        }
 
-  background-image:
-    radial-gradient(circle, #f8c8dc 4px, transparent 5px),
-    radial-gradient(circle, #ffe5b4 4px, transparent 5px),
-    radial-gradient(circle, #d6f5f5 4px, transparent 5px);
+        .item {
+            margin-bottom: 1rem;
+        }
 
-  background-size: 80px 80px;
-  opacity: 0.4;
+        .item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .item p {
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.1rem;
+            font-size: 0.8rem;
+            color: rgb(14, 14, 14);
+        }
+.item {
+    border: 8px solid #5a48ad;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #39338b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
-    @keyframes pulse {
-      0%, 100% { transform: translateY(-50%) scale(1); }
-      50%       { transform: translateY(-50%) scale(1.08); }
-    }
-    .hero > * { position: relative; z-index: 1; }
+        /* Easy customization */
+        :root {
+            --main-color: #4a90e2;
+        }
 
-    .ages-pill { display: inline-block; background: var(--teal); color: #fff; font-size: 18px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 20px; border-radius: 20px; margin-bottom: 1.6rem; }
-
-    .hero h1 { font-family: var(--head); font-size: clamp(32px, 6vw, 58px); font-weight: 600; color: var(--accent); line-height: 1.15; margin-bottom: 1.1rem; }
-    .hero h1 em { font-style: italic; color: var(--teal); }
-
-    .hero-desc { font-size: 16px; color: var(--text2); max-width: 500px; margin: 0 auto 2rem; font-weight: 300; }
-
-    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 2.2rem; }
-    .hero-tag { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 5px 18px; font-size: 18px; color: var(--text2); font-weight: 300; }
-
-    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: #fff; border: none; padding: 18px 30px; border-radius: 18px; font-size: 14px; font-weight: 500; font-family: var(--body); letter-spacing: .5px; transition: background .2s, transform .15s; text-decoration: none; display: inline-block; }
-    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
-    .btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); padding: 18px 30px; border-radius: 18px; font-size: 14px; font-family: var(--body); letter-spacing: .5px; transition: background .2s, transform .15s; text-decoration: none; display: inline-block; }
-    .btn-outline:hover { background: var(--accent3); transform: translateY(-2px); }
-
-    /* SECTIONS */
-    .wrap { max-width: 880px; margin: 0 auto; padding: 4rem 2rem; }
-    .alt { background: var(--bg2); }
-
-    .sec-title { font-family: var(--head); font-size: 30px; font-weight: 600; color: var(--accent); margin-bottom: .3rem; }
-    .sec-sub { font-size: 14px; color: var(--text3); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1.5px solid var(--accent3); font-weight: 300; }
-
-    /* CLASSES */
-    .classes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
-    .class-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.6rem 1.2rem; text-align: center; transition: box-shadow .25s, transform .25s; }
-    .class-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
-    .class-icon { font-size: 38px; margin-bottom: 12px; }
-    .class-card h3 { font-family: var(--head); font-size: 18px; font-weight: 600; margin-bottom: 6px; }
-    .class-card p { font-size: 18px; color: var(--text3); line-height: 1.55; font-weight: 300; }
-
-    /* FEES */
-    .fees-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(218px, 1fr)); gap: 14px; margin-bottom: 1.4rem; }
-    .fee-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.6rem; position: relative; }
-    .fee-card.popular { border: 2px solid var(--accent); }
-    .pop-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 18px; font-weight: 500; padding: 3px 16px; border-radius: 18px; white-space: nowrap; letter-spacing: .5px; }
-    .fee-card h3 { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
-    .fee-price { font-family: var(--head); font-size: 30px; color: var(--accent); margin-bottom: 6px; line-height: 1; }
-    .fee-price span { font-size: 18px; color: var(--text3); font-family: var(--body); font-weight: 300; }
-    .fee-note { font-size: 12px; color: var(--text3); line-height: 1.55; font-weight: 300; }
-
-    .discount-box { background: var(--teal2); border: 1px solid var(--teal); border-radius: var(--r); padding: 1.2rem 1.4rem; display: flex; gap: 14px; align-items: flex-start; }
-    .discount-icon { font-size: 26px; flex-shrink: 0; }
-    .discount-box p { font-size: 18px; color: var(--text2); line-height: 1.65; font-weight: 300; }
-    .discount-box strong { color: var(--teal); font-weight: 500; }
-
-    /* GALLERY */
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 12px; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-    .gallery-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; overflow: hidden; position: relative; transition: transform .22s, box-shadow .22s; }
-    .gallery-item:hover { transform: scale(1.03); box-shadow: var(--shadow); }
-    .gallery-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px; z-index: 0; }
-    .gallery-item .gi-label { position: relative; z-index: 1; background: rgba(0,0,0,.48); color: #fff; font-size: 18px; font-weight: 400; padding: 4px 12px; border-radius: 20px; margin-top: auto; letter-spacing: .3px; }
-    .gi-icon { font-size: 32px; margin-bottom: 8px; }
-    .gi-sub { font-size: 18px; color: var(--accent); margin-top: 4px; font-weight: 300; }
-    
-
-    /* ABOUT */
-    .about-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; display: flex; gap: 1.8rem; align-items: flex-start; }
-    
-     
-    .about-text h3 { font-family: var(--head); font-size: 22px; font-weight: 600; margin-bottom: 3px; }
-    .about-role { font-size: 25px; color: var(--accent); margin-bottom: 14px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; }
-    .about-text p { font-size: 16px; color: var(--text2); line-height: 1.8; font-weight: 300; }
-
-    /* TESTIMONIALS */
-    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-    .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.4rem; display: flex; flex-direction: column; }
-    .testi-stars { color: #d86020; font-size: 14px; margin-bottom: 18px; letter-spacing: 3px; }
-    .testi-text { font-family: var(--head); font-style: italic; font-size: 18px; color: var(--text2); line-height: 1.7; flex: 1; margin-bottom: 14px; }
-    .testi-author { font-size: 18px; font-weight: 500; color: var(--text); }
-    .testi-child { font-size: 12px; color: var(--text3); font-weight: 300; }
-
-    /* CONTACT */
-    .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 12px; margin-bottom: 1.6rem; }
-    .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.2rem; display: flex; align-items: center; gap: 12px; }
-    .contact-icon { font-size: 26px; flex-shrink: 0; }
-    .contact-card h4 { font-size: 18px; color: var(--text3); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
-    .contact-card p { font-size: 18px; color: var(--accent); font-weight: 500; }
-
-    .contact-form { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.8rem; }
-    .contact-form h3 { font-family: var(--head); font-size: 22px; font-weight: 600; margin-bottom: 1.2rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-    .form-row.single { grid-template-columns: 1fr; }
-    .form-group { display: flex; flex-direction: column; gap: 4px; }
-    .form-group label { font-size: 18px; color: var(--text3); text-transform: uppercase; letter-spacing: .8px; font-weight: 500; }
-    .form-group input, .form-group select, .form-group textarea { padding: 18px 18px; border: 1px solid var(--border); border-radius: 9px; font-size: 14px; font-family: var(--body); font-weight: 300; background: var(--bg); color: var(--text); outline: none; transition: border-color .2s, box-shadow .2s; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent3); }
-    .form-group textarea { height: 90px; resize: vertical; }
-
-    .submit-btn { width: 100%; margin-top: 6px; background: var(--accent); color: #fff; border: none; padding: 18px; border-radius: 18px; font-size: 18px; font-weight: 500; font-family: var(--body); letter-spacing: .5px; transition: background .2s, transform .15s; }
-    .submit-btn:hover { background: var(--accent2); transform: translateY(-1px); }
-
-    .success-msg { display: none; margin-top: 12px; background: var(--teal2); border: 1px solid var(--teal); color: var(--teal); border-radius: 9px; padding: 12px 16px; font-size: 14px; text-align: center; }
-
-    /* FOOTER */
-    footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
-    .footer-logo { font-family: var(--head); font-size: 26px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
-    .footer-tag { font-size: 18px; color: var(--text3); margin-bottom: 16px; font-weight: 300; }
-    .footer-links { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-bottom: 16px; }
-    .footer-links a { font-size: 18px; color: var(--text3); text-decoration: none; transition: color .2s; font-weight: 300; }
-    .footer-links a:hover { color: var(--accent); }
-    .footer-copy { font-size: 12px; color: var(--text3); font-weight: 300; }
-
-    /* RESPONSIVE */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .form-row { grid-template-columns: 1fr; }
-      .about-card { flex-direction: column; align-items: center; text-align: center; }
-      .avatar { margin-bottom: 18px; }
-      nav { padding: 0 1rem; }
-      .wrap { padding: 2.5rem 1rem; }
-      .hero { padding: 4rem 1rem 3rem; }
-      .hero-heart { display: none; }
-    }
-
-    /* HERO FADE-IN */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero > * { animation: fadeUp .75s ease both; }
-    .ages-pill  { animation-delay: .05s; }
-    .hero h1    { animation-delay: .18s; }
-    .hero-desc  { animation-delay: .30s; }
-    .hero-tags  { animation-delay: .42s; }
-    .hero-btns  { animation-delay: .54s; }
-  </style>
+    </style>
 </head>
+
 <body>
 
-<!-- PAINTBRUSH CURSOR -->
-<div id="brush">🖌️</div>
+<header>
+    <!-- Profile Image -->
+    <img src="images/profile.jpg" alt="Profile Photo">
 
-<!-- NAV -->
-<nav>
-  <div class="logo">
-    <span class="logo-name">Grace's Strokes</span>
-    <span class="logo-tag">Art Studio · Ages 7–15</span>
-  </div>
-  <div class="nav-links">
-    <a href="#classes">Classes</a>
-    <a href="#fees">Fees</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#contact">Contact</a>
-    <button class="mode-btn" id="modeBtn" onclick="toggleMode()">☀ Light</button>
-  </div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+    <h1>Mahabalamani Chidambaram</h1>
+    <p>Business Strategist | Finance and Branding</p>
+</header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#classes" onclick="closeMenu()">Classes</a>
-  <a href="#fees" onclick="closeMenu()">Fees</a>
-  <a href="#gallery" onclick="closeMenu()">Gallery</a>
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#testimonials" onclick="closeMenu()">Reviews</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-  <button class="mode-btn" id="modeBtnMobile" onclick="toggleMode(); closeMenu()" style="align-self:flex-start;margin-top:6px;">☀ Light</button>
-</div>
 
-<!-- HERO -->
-<section class="hero">
-  <!--
-    BACKGROUND IMAGE: place your image in the same folder and update the src below.
-    Example: src="images/logo.png"
-    The onerror hides it automatically if the file is missing.
-  -->
-  <img class="hero-bg-img" src="Background pic.jpeg" onerror="this.style.display='none'" />
-  <img class="hero-bg-img" src=""C:\Users\mahab\Downloads\graces-strokes\Background pic.jpeg" onerror="this.style.display='none'" />
 
-  <!-- Pulsing heart — right side of hero -->
-  <div class="hero-heart">&#10084;&#65039;</div>
+<section>
+    <h2>Education</h2>
 
-  <div class="ages-pill">Ages 7 – 15 years</div>
-  <h1>Where young artists<br>find their <em>voice</em></h1>
-  <p class="hero-desc">Mandala art, canvas painting &amp; bottle painting — guided by Ms Sara Grace in a warm, encouraging space.</p>
-  <div class="hero-tags">
-    <div class="hero-tag">⭕ Mandala Art</div>
-    <div class="hero-tag">🍶 Bottle Painting</div>
-    <div class="hero-tag">🖼️ Canvas Painting</div>
-  </div>
-  <div class="hero-btns">
-    <a href="#contact" class="btn-primary">Enroll Now</a>
-    <a href="#fees" class="btn-outline">See Fees &amp; Plans</a>
-  </div>
+    <div class="item">
+        <h3>Bachelor of Business Administration</h3>
+        <p>Christ University | 2028
+            <break></break>
+            CGPA: 3.85
+        </p>
+        <h3>Bachelor of Business Administration in Digital Business & Entrepreneurship</h3>
+        <p>IIM Bangalore | 2028</p>
+    </div>
+
 </section>
 
-<!-- CLASSES -->
-<div id="classes">
-  <div class="wrap">
-    <h2 class="sec-title">Our classes</h2>
-    <p class="sec-sub">Hands-on art programs for curious young minds — all skill levels welcome</p>
-    <div class="classes-grid">
-      <div class="class-card">
-        <div class="class-icon">🖼️</div>
-        <h3>Acrylic Painting</h3>
-        <p>Acrylics — building creative confidence on canvas through every brushstroke - elegant and satisfying.</p>
-      </div>
-      <div class="class-card">
-        <div class="class-icon">⭕</div>
-        <h3>Mandala Art</h3>
-        <p>Geometric patterns, dot art &amp; mindful drawing that develop concentration and precision.</p>
-      </div>
-      <div class="class-card">
-        <div class="class-icon">🍶</div>
-        <h3>Bottle Painting</h3>
-        <p>Transform everyday glass bottles (provided in class) into colourful, one-of-a-kind art pieces — perfect for gifting and home decor!</p>
-      </div>
-      <div class="class-card">
-        <div class="class-icon">🎀</div>
-        <h3>Mini Crafts</h3>
-        <p>Origami, best out of waste, &amp; mixed media on CDs, tote bags, t-shirts taught occassionally! </p>
-      </div>
+<section>
+    <h2>Skills</h2>
+
+    <div class="item">
+        <p>Website Development, Marketing Strategy, Creative Writing, Excel</p>
     </div>
-  </div>
-</div>
 
-<!-- FEES -->
-<div id="fees" class="alt">
-  <div class="wrap">
-    <h2 class="sec-title">Fees &amp; pricing</h2>
-    <p class="sec-sub">Simple, transparent pricing — no hidden costs, no surprises</p>
-    <div class="fees-grid">
-      <div class="fee-card">
-        <h3>Single class trial</h3>
-        <div class="fee-price">₹220 <span>/ session</span></div>
-        <div class="fee-note">Single class in any art form. Book at least 2 days in advance. Perfect as a trial class!</div>
-      </div>
-      <div class="fee-card popular">
-        <div class="pop-badge">⭐ Most popular</div>
-        <h3>Artistic Month – 8 sessions</h3>
-        <div class="fee-price">₹1,600 <span>/ month</span></div>
-        <div class="fee-note">2 sessions per week. Choose one or two art forms. Great for checking if you'd fit in!</div>
-      </div>
-      <div class="fee-card">
-        <h3>2 Months of Fun – 16 sessions</h3>
-        <div class="fee-price">₹2,880 <span>/ month</span></div>
-        <div class="fee-note">4 sessions per week. Varied art forms. Indian art like Madhubani, Pattachitra &amp; more included.</div>
-      </div>
-    </div>
-    <div class="discount-box">
-      <div class="discount-icon">🎁</div>
-      <p>
-        <strong>Discounts available:</strong>&nbsp;
-        10% off for siblings enrolled together &bull;
-        15% off for 1-year advance payment (adjusted for vacations as per need)
-        <br><em>Contact Ms Sara Grace to know more.</em>
-      </p>
-    </div>
-  </div>
-</div>
+</section>
+<section>
+    <h2>Certifications</h2>
 
-<!-- GALLERY -->
-<div id="gallery">
-  <div class="wrap">
-    <h2 class="sec-title">Student works</h2>
-    <p class="sec-sub">A peek at the beautiful art created by our young artists</p>
-
-    <!--
-      HOW TO ADD PHOTOS:
-      1. Create an "images" folder next to your index.html
-      2. Copy your photos there with simple names (no spaces)
-      3. Update the src values below to match your filenames
-      The onerror attribute hides a tile if its image is missing.
-    -->
-    <div class="gallery-grid">
-
-      <div class="gallery-item">
-        <img src="images/painting1.jpeg" alt="Acrylic Painting on Canvas" onerror="this.style.display='none'" />
-        
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/mandala1.jpeg" alt="Mandala Art" onerror="this.style.display='none'" />
-        
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/ganesha1.jpeg" alt="Ganesha Art" onerror="this.style.display='none'" />
-        
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/canvas2.jpeg" alt="Ganesha Art" onerror="this.style.display='none'" />
-        <div class="gi-icon">🖼️</div>
-        
-        <div class="gi-sub">Add photo</div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gi-icon">🌸</div>
-         <img src="images/wine.jpeg" alt="Ganesha Art" onerror="this.style.display='none'" />
-        
-        <div class="gi-sub">Add photo</div>
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/pic1.jpeg" alt="Ganesha Art" onerror="this.style.display='none'" />
-        <div class="gi-icon">📸</div>
-        
-        <div class="gi-sub">Add photo</div>
-      </div>
-<div class="gallery-item">
-        <img src="images/pic2.jpeg" alt="Ganesha Art" onerror="this.style.display='none'" />
-        <div class="gi-icon">📸</div>
-        
-        
-      
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── OUTSTANDING WORKS ── -->
-<div id="beginner">
-  <div class="wrap">
-    <h2 class="sec-title">Outstanding Works</h2>
-    <p class="sec-sub">Art that speaks for itself - guided step by step🎨</p>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-item">
-        <img src="images/pic3.jpeg" alt="Beginner work 1" onerror="this.style.display='none'" />
-        >
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/pic4.jpeg" alt="Beginner work 2" onerror="this.style.display='none'" />
-        
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/pic5.jpeg" alt="Beginner work 3" onerror="this.style.display='none'" />
-          
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/pic10.jpeg" alt="Beginner work 4" onerror="this.style.display='none'" />
-        
-      </div>
-       <div class="gallery-item">
-        <img src="images/pic7.jpeg" alt="Beginner work 3" onerror="this.style.display='none'" />
-        
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/pic8.jpeg" alt="Beginner work 4" onerror="this.style.display='none'" />
-        
-      </div>
-       <div class="gallery-item">
-        <img src="images/pic9.jpeg" alt="Beginner work 3" onerror="this.style.display='none'" />
-        
-      </div>
-
-      
-
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-
-
-<div id="about" class="alt">
-  <div class="wrap">
-    <h2 class="sec-title">About Ms Sara Grace</h2>
-    <p class="sec-sub">The heart and soul behind Grace's Strokes</p>
-    <div class="about-card">
-      <div class="avatar">
-  <img src="Images/image10.jpg" 
-
-
-  
-  </style>
-  
-<style>
- width: 100px;       
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;  
-</style>
-</div>
-
-<div> </div>
-
-      <div class="about-text">
-        <h3>Ms Sara Grace</h3>
-        <div class="about-role">Founder &amp; Lead Art Instructor</div>
-        <div class="about-card">
-        <p>
-          Ms Sara Grace is a passionate artist and educator with over 8 years of experience teaching children the joy of creating art. She holds a Master's in Fine Arts from Jain University, Bangalore.
-          She believes every child has an artist within, and her classes are designed to nurture confidence, focus, and self-expression. She is the perfect mentor to budding artists and creative souls.
-          Her teaching is filled with patience and warmth. She gives individual attention to every student, imparting wisdom in the field of art.
+    <div class="item">
+        <p> Junior MBA (Marketing & Advertising) by Clever Harvey </p>
+          <p> Creative Writing by Udemy </p>
         </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TESTIMONIALS -->
-<div id="testimonials">
-  <div class="wrap">
-    <h2 class="sec-title">What parents say</h2>
-    <p class="sec-sub">Real words from Grace's Strokes families</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"My daughter started her classes 3 months ago and her concentration has improved so much. Ms Sara is absolutely wonderful with kids!"</p>
-        <div class="testi-author">Priya Mohan</div>
-        <div class="testi-child">Parent of Ananya, age 10</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★</div>
-        <p class="testi-text">"My son loves going to art class. The classes happen in her house which I wish can be moved into a bigger space. Otherwise, wonderful teacher! She guides him very well."</p>
-        <div class="testi-author">Ramesh Kalra  </div>
-        <div class="testi-child">Parent of Arjun, age 15</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Both my children attend, I'm very happy with their works. Ms Sara handles the different styles beautifully. Highly recommended!"</p>
-        <div class="testi-author">Smitha Rathore</div>
-        <div class="testi-child">Parent of Riya (8) &amp; Dev (13)</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div id="contact" class="alt">
-  <div class="wrap">
-    <h2 class="sec-title">Get in touch</h2>
-    <p class="sec-sub">We'd love to welcome your child to Grace's Strokes — reach out anytime!</p>
-    <div class="contact-cards">
-      <div class="contact-card">
-        <div class="contact-icon">📞</div>
-        <div>
-          <h4>Call us</h4>
-          <p>+91 8660449977</p>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">💬</div>
-        <div>
-          <h4>WhatsApp</h4>
-          <p>+91 8660449977</p>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">📧</div>
-        <div>
-          <h4>Email</h4>
-          <p>info@grstrokes.com</p>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">📍</div>
-        <div>
-          <h4>Location</h4>
-          <p>#A 1002, Hill Crest, House of Hiranandani, Akshayanagar, Bangalore 560076</p>
-        </div>
-      </div>
     </div>
 
-    <div class="contact-form">
-      <h3>Send an enquiry</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Parent's name *</label>
-          <input type="text" id="parentName" placeholder="Your full name" />
-        </div>
-        <div class="form-group">
-          <label>Phone / WhatsApp *</label>
-          <input type="tel" id="phone" placeholder="+91 ..." />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Child's name</label>
-          <input type="text" id="childName" placeholder="Child's name" />
-        </div>
-        <div class="form-group">
-          <label>Child's age</label>
-          <select id="age">
-            <option value="">Select age</option>
-            <option>7</option><option>8</option><option>9</option>
-            <option>10</option><option>11</option><option>12</option>
-            <option>13</option><option>14</option><option>15</option>
-          </select>
-        </div>
-      </div>
-      
-        <div class="form-group">
-          <label>Preferred plan</label>
-          <select id="plan">
-            <option value="">Choose a plan</option>
-            <option>Single class trial (₹220 / session)</option>
-            <option>Artistic Month – 8 sessions (₹1,600)</option>
-            <option>2 Months of Fun – 16 sessions (₹2,880)</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row single">
-        <div class="form-group">
-          <label>Message (optional)</label>
-          <textarea id="message" placeholder="Any questions, special requirements, or preferred timings..."></textarea>
-        </div>
-      </div>
-      <button class="submit-btn" onclick="submitForm()">Send Enquiry ✉</button>
-      <div class="success-msg" id="successMsg">
-        🎨 Thank you! Ms Sara Grace will reach out to you shortly.
-      </div>
-    </div>
-  </div>
-</div>
+</section>
+   <section>
+    <h2>College Initiative</h2>
 
-<!-- FOOTER -->
+    <div class="item">
+        <h3>Alumni Association - Content Writing & Documentation</h3>
+        <p>
+            Drafted invites, LOAs, activity reports, EMCEE scripts, and registration forms.
+            Wrote content and proofread brochures and newsletters. Systematically reached
+            out to over 250 alumni, inviting them to various events.
+        </p>
+    </div>
+</section>
+   <section>
+    <h2>Volunteering</h2>
+
+    <div class="item">
+        <h3>Mitra For Life</h3>
+Contributed to digital initiatives by designing certificates and managing real-time social media coverage during organisational events.
+
+Assisted with event planning, on-ground logistics, rural outreach programmes, CSR engagements, backend operations, resource preparation like wrapping gifts, documentation, and newsletter design, supporting overall outreach and impact communication.</p>
+    </div>
+
+</section>
+
+<section>
+    <h2>Contact</h2>
+
+    <div class="item">
+        <p>Email: mahabalamani@gmail.com</p>
+        <p>Phone: +91-8660449977</p>
+        <p>LinkedIn: https://www.linkedin.com/in/mahabalamani-c-855a78345/</p>
+    </div>
+
+</section>
+
 <footer>
-  <div class="footer-logo">Grace's Strokes</div>
-  <div class="footer-tag">Art Studio for Ages 7–15 &nbsp;·&nbsp; Acrylic Painting &nbsp;·&nbsp; Mandala &nbsp;·&nbsp; Bottle Painting &nbsp;·&nbsp; Canvas</div>
-  <div class="footer-links">
-    <a href="#classes">Classes</a>
-    <a href="#fees">Fees</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="footer-copy">📞 8660449977 &nbsp;|&nbsp; 📧info@grstrokes.com</div>
-  <div class="footer-copy" style="margin-top:8px;">© 2026 Grace's Strokes. All rights reserved.</div>
+    <p>© 2026 Mahabalamani</p>
 </footer>
 
-<script>
-  /* PAINTBRUSH CURSOR */
-  const brush = document.getElementById('brush');
-  document.addEventListener('mousemove', function(e) {
-    brush.style.left = e.clientX + 'px';
-    brush.style.top  = e.clientY + 'px';
-  });
-  document.addEventListener('mousedown', function() { brush.classList.add('clicking'); });
-  document.addEventListener('mouseup',   function() { brush.classList.remove('clicking'); });
-
-  /* DARK / LIGHT MODE */
-  var dark = false;
-  function toggleMode() {
-    dark = !dark;
-    document.body.classList.toggle('dark', dark);
-    var label = dark ? '☾ Dark' : '☀ Light';
-    document.getElementById('modeBtn').textContent = label;
-    document.getElementById('modeBtnMobile').textContent = label;
-    localStorage.setItem('gs-theme', dark ? 'dark' : 'light');
-  }
-  (function() {
-    if (localStorage.getItem('gs-theme') === 'dark') {
-      dark = true;
-      document.body.classList.add('dark');
-      ['modeBtn','modeBtnMobile'].forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.textContent = '☾ Dark';
-      });
-    }
-  })();
-
-  /* MOBILE MENU */
-  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-  function closeMenu()  { document.getElementById('mobileMenu').classList.remove('open'); }
-
-  /* CONTACT FORM */
-  function submitForm() {
-    var name  = document.getElementById('parentName').value.trim();
-    var phone = document.getElementById('phone').value.trim();
-    if (!name || !phone) {
-      alert('Please fill in your name and phone number before submitting.');
-      return;
-    }
-    var msg = document.getElementById('successMsg');
-    msg.style.display = 'block';
-    setTimeout(function() { msg.style.display = 'none'; }, 5000);
-    ['parentName','phone','childName','message'].forEach(function(id) {
-      document.getElementById(id).value = '';
-    });
-    ['age','artForm','plan'].forEach(function(id) {
-      document.getElementById(id).selectedIndex = 0;
-    });
-  }
-
-  /* NAV ACTIVE HIGHLIGHT */
-  var allSections = document.querySelectorAll('[id]');
-  var allLinks    = document.querySelectorAll('.nav-links a');
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        allLinks.forEach(function(link) {
-          link.style.background = '';
-          link.style.color = '';
-          if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.style.background = 'var(--accent3)';
-            link.style.color = 'var(--accent)';
-          }
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-  allSections.forEach(function(s) { io.observe(s); });
-</script>
 </body>
 </html>
